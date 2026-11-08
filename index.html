@@ -1,0 +1,2256 @@
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandra Luwedde | AI & Machine Learning Engineer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      // Tailwind Custom Configuration for dark/light themes and custom styles
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#f0f7ff",
+                100: "#e0effe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                accent: "#8b5cf6", // Violet/purple AI vibe
+                cyan: "#06b6d4",
+              },
+              darkbg: "#0b0f19",
+              darkcard: "#111827",
+              darkborder: "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom Glow and Dynamic Accent Styling */
+      .glow-effect {
+        box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.25);
+      }
+      .dark .glow-effect {
+        box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.3);
+      }
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #8b5cf6 50%,
+          #06b6d4 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bg-grid-pattern {
+        background-size: 30px 30px;
+        background-image: radial-gradient(
+          circle,
+          rgba(156, 163, 175, 0.15) 1px,
+          transparent 1px
+        );
+      }
+      .dark .bg-grid-pattern {
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.07) 1px,
+          transparent 1px
+        );
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-100 font-sans transition-colors duration-300 relative selection:bg-brand-500 selection:text-white"
+  >
+    <!-- Floating Navigation -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/70 dark:bg-darkbg/70 border-b border-slate-200 dark:border-slate-800/80 transition-colors"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <!-- Brand Logo -->
+        <a href="#hero" class="flex items-center gap-2 group">
+          <div
+            class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center text-white font-mono font-bold text-lg shadow-md group-hover:scale-105 transition-transform"
+          >
+            SL
+          </div>
+          <span
+            class="font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-500 transition-colors"
+          >
+            Sandra<span class="text-brand-accent">.ai</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a
+            href="#about"
+            class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Action Items & Theme Toggle -->
+        <div class="flex items-center space-x-4">
+          <!-- Dark/Light Theme Toggle -->
+          <button
+            id="theme-toggle"
+            aria-label="Toggle Theme"
+            class="p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors focus:outline-none"
+          >
+            <i
+              id="theme-toggle-dark-icon"
+              class="fas fa-moon hidden text-base"
+            ></i>
+            <i
+              id="theme-toggle-light-icon"
+              class="fas fa-sun text-base text-amber-400"
+            ></i>
+          </button>
+
+          <!-- CTA Button -->
+          <a
+            href="mailto:sandraluwedde@outlook.com"
+            class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-500/20 transition-all hover:scale-[1.02] active:scale-95"
+          >
+            <i class="far fa-envelope text-xs"></i>
+            <span>Email Sandra</span>
+          </a>
+
+          <!-- Mobile Menu Toggle -->
+          <button
+            id="mobile-menu-btn"
+            aria-label="Open Mobile Menu"
+            class="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-darkcard/95 backdrop-blur-lg px-4 pt-3 pb-6 space-y-3"
+      >
+        <a
+          href="#about"
+          class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800"
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800"
+          >Projects</a
+        >
+        <a
+          href="#skills"
+          class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800"
+          >Skills</a
+        >
+        <a
+          href="#contact"
+          class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800"
+          >Contact</a
+        >
+        <div class="pt-2">
+          <a
+            href="mailto:sandraluwedde@outlook.com"
+            class="mobile-nav-link block w-full text-center py-2.5 rounded-xl bg-brand-600 text-white font-semibold shadow"
+            >Email Sandra</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative min-h-screen pt-28 pb-16 flex items-center bg-grid-pattern overflow-hidden"
+    >
+      <!-- Glowing floating animated background elements -->
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/10 dark:bg-brand-accent/15 rounded-full blur-[120px] -z-10 pointer-events-none animate-[pulse_6s_infinite]"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-brand-cyan/10 dark:bg-brand-500/15 rounded-full blur-[100px] -z-10 pointer-events-none animate-[pulse_8s_infinite]"
+      ></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Hero Text Content -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <!-- Status Tag -->
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-500 text-xs sm:text-sm font-semibold tracking-wide shadow-sm"
+            >
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-brand-600"
+                ></span>
+              </span>
+              <span id="typed-text-role" class="font-mono"
+                >AI & Machine Learning Engineer</span
+              >
+            </div>
+
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]"
+            >
+              Architecting Intelligent Systems with
+              <span class="gradient-text">Data & AI</span>
+            </h1>
+
+            <p
+              class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+            >
+              Hi, I'm
+              <strong class="text-slate-900 dark:text-white"
+                >Sandra Luwedde</strong
+              >. I specialize in ML architecture, end-to-end data pipelines,
+              predictive analytics, and scalable AI solutions for real-world
+              applications.
+            </p>
+
+            <!-- CTAs -->
+            <div
+              class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            >
+              <a
+                href="#projects"
+                class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-1 active:translate-y-0 text-center flex items-center justify-center gap-2 group"
+              >
+                <i
+                  class="fas fa-laptop-code group-hover:rotate-12 transition-transform"
+                ></i>
+                Explore Projects
+              </a>
+              <a
+                href="https://github.com/codicm"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white dark:bg-darkcard border border-slate-300 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-all transform hover:-translate-y-1 active:translate-y-0 text-center flex items-center justify-center gap-2"
+              >
+                <i class="fab fa-github"></i> GitHub Profile
+              </a>
+            </div>
+
+            <!-- Quick Stats / Highlights -->
+            <div
+              class="pt-8 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left"
+            >
+              <div>
+                <p
+                  class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono"
+                >
+                  5+
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Core AI Systems
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono"
+                >
+                  95%+
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Model Accuracy
+                </p>
+              </div>
+              <div>
+                <p
+                  class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono"
+                >
+                  &lt;50ms
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Inference Latency
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Card / Visual Interactive Element -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              <!-- Code Editor Styled Interactive Graphic -->
+              <div
+                class="rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden glow-effect transition-all hover:scale-[1.02] hover:shadow-brand-500/20"
+              >
+                <!-- Window Top Bar -->
+                <div
+                  class="px-4 py-3 bg-slate-100 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between"
+                >
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3 h-3 rounded-full bg-red-500 inline-block hover:opacity-80 cursor-pointer"
+                    ></span>
+                    <span
+                      class="w-3 h-3 rounded-full bg-yellow-500 inline-block hover:opacity-80 cursor-pointer"
+                    ></span>
+                    <span
+                      class="w-3 h-3 rounded-full bg-green-500 inline-block hover:opacity-80 cursor-pointer"
+                    ></span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-400"
+                    >luwedde_engine.py</span
+                  >
+                </div>
+
+                <!-- Code Content Snippet -->
+                <div
+                  class="p-5 font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 space-y-2 overflow-x-auto"
+                >
+                  <p class="text-slate-400">
+                    # Production AI Engineering Pipeline
+                  </p>
+                  <p>
+                    <span class="text-purple-600 dark:text-purple-400"
+                      >import</span
+                    >
+                    <span class="text-brand-600 dark:text-brand-400"
+                      >torch</span
+                    >
+                  </p>
+                  <p>
+                    <span class="text-purple-600 dark:text-purple-400"
+                      >from</span
+                    >
+                    <span class="text-brand-600 dark:text-brand-400"
+                      >luwedde_ml</span
+                    >
+                    <span class="text-purple-600 dark:text-purple-400"
+                      >import</span
+                    >
+                    PredictivePipeline
+                  </p>
+                  <br />
+                  <p>
+                    <span class="text-blue-600 dark:text-blue-400">class</span>
+                    <span class="text-amber-600 dark:text-amber-300"
+                      >MLEngineer</span
+                    >:
+                  </p>
+                  <p class="pl-4">
+                    <span class="text-purple-600 dark:text-purple-400"
+                      >def</span
+                    >
+                    <span class="text-blue-600 dark:text-blue-400"
+                      >__init__</span
+                    >(self):
+                  </p>
+                  <p class="pl-8">
+                    self.engineer =
+                    <span class="text-green-600 dark:text-green-400"
+                      >"Sandra Luwedde"</span
+                    >
+                  </p>
+                  <p class="pl-8">
+                    self.role =
+                    <span class="text-green-600 dark:text-green-400"
+                      >"AI & ML Engineer"</span
+                    >
+                  </p>
+                  <p class="pl-8">
+                    self.skills = [<span
+                      class="text-green-600 dark:text-green-400"
+                      >"PyTorch"</span
+                    >,
+                    <span class="text-green-600 dark:text-green-400">"SQL"</span
+                    >,
+                    <span class="text-green-600 dark:text-green-400"
+                      >"Analytics"</span
+                    >]
+                  </p>
+                  <br />
+                  <p class="pl-4">
+                    <span class="text-purple-600 dark:text-purple-400"
+                      >def</span
+                    >
+                    <span class="text-blue-600 dark:text-blue-400"
+                      >deploy_solution</span
+                    >(self, dataset):
+                  </p>
+                  <p class="pl-8 text-brand-600 dark:text-brand-400">
+                    return PredictivePipeline.fit_transform(dataset)
+                  </p>
+                </div>
+
+                <!-- Terminal Output Footer -->
+                <div
+                  class="bg-slate-900 text-slate-300 p-4 border-t border-slate-800 font-mono text-xs flex items-center justify-between"
+                >
+                  <span class="flex items-center gap-2">
+                    <i
+                      class="fas fa-check-circle text-emerald-400 animate-pulse"
+                    ></i>
+                    Model active & processing.
+                  </span>
+                  <span
+                    class="animate-pulse bg-emerald-400 text-slate-900 font-bold px-1.5 py-0.5 rounded text-[10px]"
+                    >PRODUCTION</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-20 bg-white dark:bg-darkcard/50 border-y border-slate-200 dark:border-slate-800/80 transition-colors"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2
+            class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-500"
+          >
+            About Me
+          </h2>
+          <p
+            class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white"
+          >
+            Designing High-Performance Machine Learning & Data Systems
+          </p>
+          <p class="text-slate-600 dark:text-slate-400 text-base">
+            From predictive modeling to cross-platform deployment, I build
+            data-driven systems that yield concrete metrics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <!-- Profile/Bio Card -->
+          <div
+            class="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed"
+          >
+            <p class="text-lg">
+              As an
+              <strong class="text-slate-900 dark:text-white"
+                >AI & Machine Learning Engineer</strong
+              >, I build scalable predictive models, clean complex datasets, and
+              architect end-to-end analytics pipelines for modern applications.
+            </p>
+            <p>
+              My expertise covers the complete AI lifecycle: from exploratory
+              data analysis and feature engineering to model training,
+              optimization, and microservice deployment across web, cloud, and
+              edge runtime environments.
+            </p>
+            <p>
+              Equipped with strong proficiency in Python, PyTorch, SQL, and
+              advanced spreadsheet analytics, I translate complex data into
+              actionable insights and robust software architectures.
+            </p>
+
+            <div class="pt-4 flex flex-wrap gap-3">
+              <span
+                class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5"
+              >
+                <i class="fas fa-brain text-brand-500"></i> AI & ML Engineer
+              </span>
+              <span
+                class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5"
+              >
+                <i class="fas fa-network-wired text-purple-500"></i> Scalable
+                Systems
+              </span>
+              <span
+                class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5"
+              >
+                <i class="fas fa-chart-line text-cyan-500"></i> Data Analytics
+              </span>
+            </div>
+          </div>
+
+          <!-- Core Competency Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 transition-all hover:border-brand-500/50 group"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"
+              >
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                Machine Learning
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Supervised & unsupervised algorithms, neural network design, and
+                NLP models.
+              </p>
+            </div>
+
+            <div
+              class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 transition-all hover:border-brand-500/50 group"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"
+              >
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                Data Analytics
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Hypothesis testing, exploratory data analysis, feature
+                engineering, and dashboards.
+              </p>
+            </div>
+
+            <div
+              class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 transition-all hover:border-brand-500/50 group"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"
+              >
+                <i class="fas fa-server"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                Microservices & AI
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                REST APIs, containerized deployment, and real-time backend
+                inference layers.
+              </p>
+            </div>
+
+            <div
+              class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 transition-all hover:border-brand-500/50 group"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform"
+              >
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                Data Pipelines
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Optimized SQL ETL jobs, data cleaning, automated validation, and
+                reporting systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header & Filter Tabs -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
+        >
+          <div>
+            <h2
+              class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-500"
+            >
+              Portfolio Work
+            </h2>
+            <p
+              class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mt-1"
+            >
+              Featured AI & ML Projects
+            </p>
+          </div>
+
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap gap-2" id="project-filters">
+            <button
+              data-filter="all"
+              class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white shadow-sm transition-all"
+            >
+              All Projects
+            </button>
+            <button
+              data-filter="ml"
+              class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-all"
+            >
+              Machine Learning
+            </button>
+            <button
+              data-filter="analytics"
+              class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-all"
+            >
+              Data Analytics
+            </button>
+            <button
+              data-filter="architecture"
+              class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-all"
+            >
+              Architecture
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid (5 Projects) -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="projects-grid"
+        >
+  <!-- Project 1: Healthcare Operations Analytics & Predictive Pipeline -->
+<div
+  class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  data-category="analytics ml"
+>
+  <div
+    class="h-48 bg-gradient-to-tr from-rose-600 to-purple-600 p-6 flex flex-col justify-between relative overflow-hidden"
+  >
+    <div
+      class="absolute right-[-20px] bottom-[-20px] opacity-15 text-9xl text-white font-mono pointer-events-none"
+    >
+      <i class="fas fa-notes-medical font-sans"></i>
+    </div>
+    <div class="flex justify-between items-start z-10">
+      <span
+        class="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider uppercase"
+        >Analytics & Predictive</span
+      >
+      <a
+        href="https://github.com/codicm"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white/80 hover:text-white transition-colors"
+        ><i class="fas fa-external-link-alt"></i
+      ></a>
+    </div>
+    <div class="z-10">
+      <h3 class="text-xl font-bold text-white">
+        Healthcare Operations Analytics
+      </h3>
+    </div>
+  </div>
+  <div class="p-6 space-y-4">
+    <p
+      class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3"
+    >
+      Comprehensive healthcare dataset analysis featuring correlation
+      modeling, data cleaning, and billing metrics prediction using
+      regression pipelines to optimize hospital resource allocation.
+    </p>
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Python</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >SQL</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Pandas</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Scikit-Learn</span
+      >
+    </div>
+    <div
+      class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs text-slate-500 font-medium"
+    >
+      <span
+        ><i class="fas fa-bullseye text-rose-500 mr-1"></i> High
+        Correlation Insights</span
+      >
+      <button
+        onclick="openHealthcareModal()"
+        class="text-brand-600 dark:text-brand-400 hover:underline font-semibold cursor-pointer border-none bg-transparent"
+      >
+        View more &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+
+         <!-- Project 2: Retail Customer Segmentation & Behavioral Engine -->
+<div
+  class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  data-category="analytics ml"
+>
+  <div
+    class="h-48 bg-gradient-to-tr from-blue-600 to-cyan-500 p-6 flex flex-col justify-between relative overflow-hidden"
+  >
+    <div
+      class="absolute right-[-20px] bottom-[-20px] opacity-15 text-9xl text-white font-mono pointer-events-none"
+    >
+      <i class="fas fa-users font-sans"></i>
+    </div>
+    <div class="flex justify-between items-start z-10">
+      <span
+        class="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider uppercase"
+        >Analytics & Clustering</span
+      >
+      <a
+        href="https://github.com/codicm"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white/80 hover:text-white transition-colors"
+        ><i class="fas fa-external-link-alt"></i
+      ></a>
+    </div>
+    <div class="z-10">
+      <h3 class="text-xl font-bold text-white">
+        Retail Customer Segmentation
+      </h3>
+    </div>
+  </div>
+  <div class="p-6 space-y-4">
+    <p
+      class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3"
+    >
+      Demographic spending analysis and cluster segmentation utilizing
+      K-Means and RFM algorithms to model consumer behavior patterns
+      and boost marketing ROI.
+    </p>
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Python</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Google Sheets</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >K-Means</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Seaborn</span
+      >
+    </div>
+    <div
+      class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs text-slate-500 font-medium"
+    >
+      <span
+        ><i class="fas fa-chart-line text-brand-500 mr-1"></i> +28%
+        Target Conversion</span
+      >
+      <button
+        onclick="openRetailModal()"
+        class="text-brand-600 dark:text-brand-400 hover:underline font-semibold cursor-pointer border-none bg-transparent"
+      >
+        View more &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+          <!-- Project 3: Automated AI Resume & Candidate Screening Tool -->
+<div
+  class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  data-category="architecture ml"
+>
+  <div
+    class="h-48 bg-gradient-to-tr from-slate-800 to-indigo-900 p-6 flex flex-col justify-between relative overflow-hidden"
+  >
+    <div
+      class="absolute right-[-20px] bottom-[-20px] opacity-20 text-9xl text-white font-mono pointer-events-none"
+    >
+      <i class="fas fa-file-alt font-sans"></i>
+    </div>
+    <div class="flex justify-between items-start z-10">
+      <span
+        class="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider uppercase"
+        >NLP & Semantic Search</span
+      >
+      <span class="text-white/80 font-mono text-xs">Artifact #3</span>
+    </div>
+    <div class="z-10">
+      <h3 class="text-xl font-bold text-white">
+        Automated AI Resume Screener
+      </h3>
+    </div>
+  </div>
+  <div class="p-6 space-y-4">
+    <p
+      class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3"
+    >
+      Transformer-based semantic search engine parsing resumes and job descriptions, calculating cosine similarities and ranking candidates by contextual skill alignment.
+    </p>
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Python</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >PyTorch</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Transformers</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >FastAPI</span
+      >
+    </div>
+    <div
+      class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs text-slate-500 font-medium"
+    >
+      <span
+        ><i class="fas fa-bolt text-amber-400 mr-1"></i> Sub-45ms
+        Latency</span
+      >
+      <button
+        onclick="openResumeModal()"
+        class="text-brand-600 dark:text-brand-400 hover:underline font-semibold cursor-pointer border-none bg-transparent"
+      >
+        View more &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+
+          <!-- Project 4: Customer Churn Prediction System -->
+<div
+  class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  data-category="ml analytics"
+>
+  <div
+    class="h-48 bg-gradient-to-tr from-emerald-600 to-teal-500 p-6 flex flex-col justify-between relative overflow-hidden"
+  >
+    <div
+      class="absolute right-[-20px] bottom-[-20px] opacity-15 text-9xl text-white font-mono pointer-events-none"
+    >
+      <i class="fas fa-shopping-cart font-sans"></i>
+    </div>
+    <div class="flex justify-between items-start z-10">
+      <span
+        class="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider uppercase"
+        >Classification & Churn</span
+      >
+      <span class="text-white/80 font-mono text-xs">Artifact #4</span>
+    </div>
+    <div class="z-10">
+      <h3 class="text-xl font-bold text-white">
+        E-Commerce Churn Prediction System
+      </h3>
+    </div>
+  </div>
+  <div class="p-6 space-y-4">
+    <p
+      class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3"
+    >
+      Supervised machine learning pipeline combining XGBoost classification with class-imbalance handling to predict customer churn risk and optimize retention ROI.
+    </p>
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Python</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >XGBoost</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >PostgreSQL</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Scikit-Learn</span
+      >
+    </div>
+    <div
+      class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs text-slate-500 font-medium"
+    >
+      <span
+        ><i class="fas fa-check-circle text-emerald-400 mr-1"></i> 91%
+        Churn Recall</span
+      >
+      <button
+        onclick="openChurnModal()"
+        class="text-brand-600 dark:text-brand-400 hover:underline font-semibold cursor-pointer border-none bg-transparent"
+      >
+        View more &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+          <!-- Artifact 2: Healthcare Dietitian AI Assistant -->
+          <div
+            class="project-card bg-slate-900 border border-slate-800 rounded-2xl p-6 transition-all hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span
+                class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+              >
+                Conversational AI & Guardrails
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Artifact #2</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-2">
+              Healthcare Dietitian AI Assistant
+            </h3>
+            <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+              A guardrailed conversational AI chatbot delivering personalized,
+              biometric-driven nutritional advice based on user health
+              parameters, weight targets, medical conditions, and strict
+              time-of-day meal logic.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                class="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded"
+                >Python / FastAPI</span
+              >
+              <span
+                class="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded"
+                >Prompt Engineering</span
+              >
+              <span
+                class="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded"
+                >LLM Guardrails</span
+              >
+              <span
+                class="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded"
+                >Safety Filters</span
+              >
+            </div>
+
+            <div
+              class="pt-4 border-t border-slate-800 flex items-center justify-between"
+            >
+              <span
+                class="text-emerald-400 text-xs font-mono font-semibold flex items-center gap-1"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                100% Policy Compliant
+              </span>
+              <button
+                onclick="openSnippetModal()"
+                class="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 transition-colors cursor-pointer"
+              >
+                View Code Snippet →
+              </button>
+            </div>
+          </div>
+<!-- Project 5: Predictive Maintenance & Demand Forecasting Model -->
+<div
+  class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  data-category="ml analytics"
+>
+  <div
+    class="h-48 bg-gradient-to-tr from-amber-600 to-orange-500 p-6 flex flex-col justify-between relative overflow-hidden"
+  >
+    <div
+      class="absolute right-[-20px] bottom-[-20px] opacity-15 text-9xl text-white font-mono pointer-events-none"
+    >
+      <i class="fas fa-chart-line font-sans"></i>
+    </div>
+    <div class="flex justify-between items-start z-10">
+      <span
+        class="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider uppercase"
+        >Time-Series & Forecasting</span
+      >
+      <span class="text-white/80 font-mono text-xs">Artifact #5</span>
+    </div>
+    <div class="z-10">
+      <h3 class="text-xl font-bold text-white">
+        Predictive Demand Forecasting
+      </h3>
+    </div>
+  </div>
+  <div class="p-6 space-y-4">
+    <p
+      class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3"
+    >
+      Time-series regression model engineered with temporal lag features and rolling statistics to forecast supply chain demand and optimize operational logistics.
+    </p>
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Python</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Pandas</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Scikit-Learn</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Time-Series</span
+      >
+    </div>
+    <div
+      class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs text-slate-500 font-medium"
+    >
+      <span
+        ><i class="fas fa-tachometer-alt text-amber-500 mr-1"></i> Low Error Rates</span
+      >
+      <button
+        onclick="openForecastModal()"
+        class="text-brand-600 dark:text-brand-400 hover:underline font-semibold cursor-pointer border-none bg-transparent"
+      >
+        View more &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Technologies Section -->
+    <section
+      id="skills"
+      class="py-20 bg-white dark:bg-darkcard/50 border-y border-slate-200 dark:border-slate-800/80"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <h2
+            class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-500"
+          >
+            Technical Expertise
+          </h2>
+          <p
+            class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white"
+          >
+            Skills & Core Technologies
+          </p>
+          <p class="text-slate-600 dark:text-slate-400 text-base">
+            A breakdown of my technical proficiency across AI frameworks,
+            analytics engines, and database systems.
+          </p>
+        </div>
+
+        <!-- Skills Visualizer Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Skill Progress Bars (Left Side) -->
+          <div class="lg:col-span-7 space-y-6">
+            <h3
+              class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <i class="fas fa-sliders-h text-brand-500 text-sm"></i>
+              Proficiency Matrix
+            </h3>
+
+            <!-- Python -->
+            <div class="space-y-2 skill-bar-item">
+              <div class="flex justify-between text-sm font-semibold">
+                <span class="flex items-center gap-2"
+                  ><i class="fab fa-python text-blue-500"></i> Python (ML / Deep
+                  Learning / PyTorch)</span
+                >
+                <span class="font-mono text-brand-600 dark:text-brand-400"
+                  >95%</span
+                >
+              </div>
+              <div
+                class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  class="skill-progress-bar bg-gradient-to-r from-brand-500 to-brand-accent h-2.5 rounded-full w-0 transition-all duration-1000 ease-out"
+                  data-width="95%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Machine Learning & AI -->
+            <div class="space-y-2 skill-bar-item">
+              <div class="flex justify-between text-sm font-semibold">
+                <span class="flex items-center gap-2"
+                  ><i class="fas fa-brain text-purple-500"></i> Machine Learning
+                  Architecture</span
+                >
+                <span class="font-mono text-purple-600 dark:text-purple-400"
+                  >92%</span
+                >
+              </div>
+              <div
+                class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  class="skill-progress-bar bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full w-0 transition-all duration-1000 ease-out"
+                  data-width="92%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- SQL & Database Engineering -->
+            <div class="space-y-2 skill-bar-item">
+              <div class="flex justify-between text-sm font-semibold">
+                <span class="flex items-center gap-2"
+                  ><i class="fas fa-database text-cyan-500"></i> SQL & Database
+                  Engineering</span
+                >
+                <span class="font-mono text-cyan-600 dark:text-cyan-400"
+                  >88%</span
+                >
+              </div>
+              <div
+                class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  class="skill-progress-bar bg-gradient-to-r from-cyan-500 to-blue-500 h-2.5 rounded-full w-0 transition-all duration-1000 ease-out"
+                  data-width="88%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Data Analytics & Google Sheets -->
+            <div class="space-y-2 skill-bar-item">
+              <div class="flex justify-between text-sm font-semibold">
+                <span class="flex items-center gap-2"
+                  ><i class="fas fa-table text-emerald-500"></i> Data Analytics
+                  & Google Sheets Advanced</span
+                >
+                <span class="font-mono text-emerald-600 dark:text-emerald-400"
+                  >90%</span
+                >
+              </div>
+              <div
+                class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  class="skill-progress-bar bg-gradient-to-r from-emerald-500 to-teal-400 h-2.5 rounded-full w-0 transition-all duration-1000 ease-out"
+                  data-width="90%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Microservices & Deployment -->
+            <div class="space-y-2 skill-bar-item">
+              <div class="flex justify-between text-sm font-semibold">
+                <span class="flex items-center gap-2"
+                  ><i class="fas fa-cubes text-amber-500"></i> Microservices &
+                  Cloud Deployment</span
+                >
+                <span class="font-mono text-amber-600 dark:text-amber-400"
+                  >86%</span
+                >
+              </div>
+              <div
+                class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  class="skill-progress-bar bg-gradient-to-r from-amber-500 to-orange-500 h-2.5 rounded-full w-0 transition-all duration-1000 ease-out"
+                  data-width="86%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Badges & Frameworks (Right Side) -->
+          <div class="lg:col-span-5 space-y-6">
+            <h3
+              class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <i class="fas fa-microchip text-brand-500 text-sm"></i> Ecosystem
+              & Tools
+            </h3>
+
+            <div
+              class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-4"
+            >
+              <div>
+                <p
+                  class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"
+                >
+                  AI & ML Frameworks
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >PyTorch</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >TensorFlow</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >Scikit-Learn</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >XGBoost</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >OpenCV</span
+                  >
+                </div>
+              </div>
+
+              <div>
+                <p
+                  class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"
+                >
+                  Data Engineering & Analytics
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >PostgreSQL</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >MySQL</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >Pandas & NumPy</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >Google Sheets</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >ETL Pipelines</span
+                  >
+                </div>
+              </div>
+
+              <div>
+                <p
+                  class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"
+                >
+                  DevOps & Microservices
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >FastAPI</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >Docker</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >Git / GitHub</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >RESTful APIs</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-lg bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 text-xs font-semibold"
+                    >ONNX Runtime</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (Direct Links Only, Form Removed) -->
+    <section id="contact" class="py-20 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="space-y-4 mb-12">
+          <h2
+            class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-500"
+          >
+            Get in Touch
+          </h2>
+          <p
+            class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white"
+          >
+            Let's Build Intelligent Systems Together
+          </p>
+          <p
+            class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed"
+          >
+            I am actively open to engineering collaborations, AI consulting, and
+            machine learning opportunities. Feel free to reach out directly
+            through email or view my repositories on GitHub.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <!-- Direct Email Card -->
+          <a
+            href="mailto:sandraluwedde@outlook.com"
+            class="p-6 rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-brand-500/50 transition-all group flex flex-col items-center hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="far fa-envelope"></i>
+            </div>
+            <p
+              class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"
+            >
+              Direct Email
+            </p>
+            <span
+              class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors"
+              >sandraluwedde@outlook.com</span
+            >
+          </a>
+
+          <!-- GitHub Profile Card -->
+          <a
+            href="https://github.com/codicm"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-6 rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-brand-500/50 transition-all group flex flex-col items-center hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-slate-900/10 dark:bg-slate-100/10 text-slate-900 dark:text-white flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fab fa-github"></i>
+            </div>
+            <p
+              class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"
+            >
+              GitHub Profile
+            </p>
+            <span
+              class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors"
+              >github.com/codicm</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-8 bg-slate-100 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-slate-900 dark:text-white"
+            >Sandra Luwedde</span
+          >
+          &copy; <span id="current-year"></span>. All rights reserved.
+        </div>
+        <div class="flex space-x-6">
+          <a
+            href="mailto:sandraluwedde@outlook.com"
+            class="hover:text-brand-500 transition-colors"
+            >sandraluwedde@outlook.com</a
+          >
+          <a
+            href="https://github.com/codicm"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-brand-500 transition-colors"
+            >GitHub</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts for Interactions, Theme Management & Animations -->
+    <script>
+      // Set Footer Year
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Hero Dynamic Typing Text Effect
+      const roles = [
+        "AI & Machine Learning Engineer",
+        "Predictive Analytics Specialist",
+        "Scalable System Architect",
+      ];
+      let roleIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+      const typedElem = document.getElementById("typed-text-role");
+
+      function typeEffect() {
+        const currentRole = roles[roleIdx];
+        if (isDeleting) {
+          typedElem.textContent = currentRole.substring(0, charIdx - 1);
+          charIdx--;
+        } else {
+          typedElem.textContent = currentRole.substring(0, charIdx + 1);
+          charIdx++;
+        }
+
+        let typeSpeed = isDeleting ? 40 : 80;
+
+        if (!isDeleting && charIdx === currentRole.length) {
+          typeSpeed = 2200; // Pause at full word
+          isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+          isDeleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+          typeSpeed = 400;
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+      }
+      typeEffect();
+
+      // IntersectionObserver for Skill Bars Smooth Fill Animation
+      const skillBars = document.querySelectorAll(".skill-progress-bar");
+      const skillObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const bar = entry.target;
+              const targetWidth = bar.getAttribute("data-width");
+              bar.style.width = targetWidth;
+              observer.unobserve(bar);
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      skillBars.forEach((bar) => skillObserver.observe(bar));
+
+      // Theme Toggle Functionality
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const darkIcon = document.getElementById("theme-toggle-dark-icon");
+      const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+      if (
+        localStorage.getItem("color-theme") === "light" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: light)").matches)
+      ) {
+        document.documentElement.classList.remove("dark");
+        lightIcon.classList.add("hidden");
+        darkIcon.classList.remove("hidden");
+      } else {
+        document.documentElement.classList.add("dark");
+        darkIcon.classList.add("hidden");
+        lightIcon.classList.remove("hidden");
+      }
+
+      themeToggleBtn.addEventListener("click", function () {
+        darkIcon.classList.toggle("hidden");
+        lightIcon.classList.toggle("hidden");
+
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Project Filtering Logic
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => {
+            b.classList.remove("active", "bg-brand-600", "text-white");
+            b.classList.add(
+              "bg-white",
+              "dark:bg-darkcard",
+              "text-slate-600",
+              "dark:text-slate-300",
+            );
+          });
+
+          btn.classList.add("active", "bg-brand-600", "text-white");
+          btn.classList.remove(
+            "bg-white",
+            "dark:bg-darkcard",
+            "text-slate-600",
+            "dark:text-slate-300",
+          );
+
+          const filter = btn.getAttribute("data-filter");
+
+          projectCards.forEach((card) => {
+            if (
+              filter === "all" ||
+              card.getAttribute("data-category").includes(filter)
+            ) {
+              card.style.display = "block";
+              card.style.opacity = "1";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+    <!-- Code Snippet Modal -->
+<div id="snippetModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+  <div class="relative w-full max-w-3xl bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl m-4">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+      <div>
+        <h3 class="text-lg font-bold text-white">Healthcare Dietitian AI Assistant</h3>
+   
+      </div>
+      <button onclick="closeSnippetModal()" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors">
+        ✕
+      </button>
+    </div>
+    
+    <!-- Modal Body / Image Viewer -->
+    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex items-center justify-center overflow-hidden">
+      <img src="images/snip1.png" alt="Dietitian AI Code Snippet" class="max-h-[70vh] w-auto object-contain rounded-lg shadow-lg" />
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-4 border-t border-slate-800 flex justify-end">
+      <button onclick="closeSnippetModal()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg transition-colors">
+        Close Preview
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Script Controls -->
+<script>
+  function openSnippetModal() {
+    document.getElementById('snippetModal').classList.remove('hidden');
+  }
+  function closeSnippetModal() {
+    document.getElementById('snippetModal').classList.add('hidden');
+  }
+  // Close when clicking outside the modal box
+  window.onclick = function(event) {
+    const modal = document.getElementById('snippetModal');
+    if (event.target == modal) {
+      closeSnippetModal();
+    }
+  }
+</script>
+
+<!-- Modal for Healthcare Operations Analytics -->
+<div
+  id="healthcareModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4"
+>
+  <div
+    class="relative w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Healthcare Operations Analytics & Predictive Pipeline</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Implementation Code & System Overview</p>
+      </div>
+      <button
+        onclick="closeHealthcareModal()"
+        class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 transition-colors"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="space-y-6">
+      <!-- Project Description -->
+      <div class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p>
+         1. Customization for the Audience:
+I structured the analysis to serve both healthcare operational administrators and data analytics teams. I translated complex regression outputs into clear summary charts and key correlation insights, highlighting how demographic and operational variables relate to patient billing metrics and length of stay. This allowed administrative teams to grasp cost drivers without getting lost in raw statistical jargon.<br/><br/>
+
+2. Lessons Learned:
+Working with a large dataset containing over 55,000 records reinforced the necessity of rigorous data cleaning and validation before applying statistical functions. I learned how missing values, duplicate entries, and extreme outliers can significantly skew regression coefficients. This project strengthened my mastery of high-volume data handling, feature transformation, and statistical correlation analysis. <br/><br/>
+
+3. Feedback and Revisions:
+Based on peer and instructor feedback, my initial dataset lacked sufficient documentation regarding data transformation steps. I revised the project by adding detailed data validation notes and statistical summaries explaining the normalization decisions made prior to model training. This improved the transparency and reproducibility of the analysis.
+        </p>
+      </div>
+
+      <!-- Code Snippet Image Preview -->
+      <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+        <span class="text-xs font-mono text-slate-400 mb-2 self-start px-2">Source Code Preview (images/healthcare.png):</span>
+        <img
+          src="images/health.png"
+          alt="Healthcare Operations Analytics Code Snippet"
+          class="max-h-[60vh] w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+        />
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-6 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+    
+      <button
+        onclick="closeHealthcareModal()"
+        class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+      >
+        Close Preview
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Control JavaScript -->
+<script>
+  function openHealthcareModal() {
+    document.getElementById('healthcareModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeHealthcareModal() {
+    document.getElementById('healthcareModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('healthcareModal');
+    if (event.target === modal) {
+      closeHealthcareModal();
+    }
+  });
+</script>
+
+<!-- Modal for Retail Customer Segmentation -->
+<div
+  id="retailModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4"
+>
+  <div
+    class="relative w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Retail Market Customer Segmentation Dashboard (Unsupervised Learning)</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Artifact Overview & Implementation Specs</p>
+      </div>
+      <button
+        onclick="closeRetailModal()"
+        class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 transition-colors"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Navigation Tabs inside Modal -->
+    <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 gap-4 text-xs font-semibold">
+      <button 
+        id="tab-btn-retail-reflection" 
+        onclick="switchRetailTab('reflection')" 
+        class="pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all"
+      >
+        Project Reflection & Insights
+      </button>
+      <button 
+        id="tab-btn-retail-code" 
+        onclick="switchRetailTab('code')" 
+        class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all"
+      >
+        Source Code Preview (images/snip2.png)
+      </button>
+    </div>
+
+    <!-- TAB 1: Reflection Content -->
+    <div id="tab-content-retail-reflection" class="space-y-6 text-sm text-slate-600 dark:text-slate-300">
+      <!-- Section 1 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+          1. Customization for the Audience
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          The target audience for this artifact was retail marketing strategists looking to design targeted promotional campaigns. I tailored the cluster visualization outputs into clean pivot tables and column charts, clearly labeling demographic brackets (age, gender, spending score) so marketers could immediately identify distinct customer personas without needing a deep background in clustering algorithms.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+          2. Lessons Learned
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          This project deepened my understanding of unsupervised learning, specifically the nuances of K-Means clustering and distance-based feature scaling. I learned how to use the Elbow Method to evaluate mathematical inertia and determine the optimal number of clusters ($k$). I realized that unsupervised learning requires combining statistical validation with domain knowledge to ensure the discovered clusters are practically meaningful.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          3. Feedback and Revisions
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Feedback on the preliminary draft noted that the raw clusters were hard to interpret without visual context. I incorporated this by adding interactive bar charts and comparative spending breakdown tables. I also refined the cluster labeling to directly describe consumer behavior (e.g., "High-Income, High-Spending"), making the insights instantly actionable for marketing applications.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 2: Image Code Preview -->
+    <div id="tab-content-retail-code" class="hidden">
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+        <span class="text-xs font-mono text-slate-400 mb-3 self-start px-1">Source Code Screenshot: images/snip2.png</span>
+        <img
+          src="images/segm.png"
+          alt="Retail Customer Segmentation Code Snippet"
+          class="max-h-[60vh] w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+        />
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-6 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+     
+      <button
+        onclick="closeRetailModal()"
+        class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+      >
+        Close Window
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tab Switcher & Display JavaScript -->
+<script>
+  function openRetailModal() {
+    document.getElementById('retailModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRetailModal() {
+    document.getElementById('retailModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function switchRetailTab(tab) {
+    const reflectionContent = document.getElementById('tab-content-retail-reflection');
+    const codeContent = document.getElementById('tab-content-retail-code');
+    const reflectionBtn = document.getElementById('tab-btn-retail-reflection');
+    const codeBtn = document.getElementById('tab-btn-retail-code');
+
+    if (tab === 'reflection') {
+      reflectionContent.classList.remove('hidden');
+      codeContent.classList.add('hidden');
+      reflectionBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      codeBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    } else {
+      reflectionContent.classList.add('hidden');
+      codeContent.classList.remove('hidden');
+      codeBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      reflectionBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    }
+  }
+
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('retailModal');
+    if (event.target === modal) {
+      closeRetailModal();
+    }
+  });
+</script>
+
+<!-- Modal for Automated AI Resume & Candidate Screening Tool -->
+<div
+  id="resumeModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4"
+>
+  <div
+    class="relative w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Automated AI Resume & Candidate Screening Tool (NLP & Semantic Search)</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Artifact Overview & Implementation Specs</p>
+      </div>
+      <button
+        onclick="closeResumeModal()"
+        class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 transition-colors"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Navigation Tabs inside Modal -->
+    <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 gap-4 text-xs font-semibold">
+      <button 
+        id="tab-btn-resume-reflection" 
+        onclick="switchResumeTab('reflection')" 
+        class="pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all"
+      >
+        Project Reflection & Insights
+      </button>
+      <button 
+        id="tab-btn-resume-code" 
+        onclick="switchResumeTab('code')" 
+        class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all"
+      >
+        Source Code Preview (images/snip3.png)
+      </button>
+    </div>
+
+    <!-- TAB 1: Reflection Content -->
+    <div id="tab-content-resume-reflection" class="space-y-6 text-sm text-slate-600 dark:text-slate-300">
+      <!-- Section 1 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+          1. Customization for the Audience
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          I designed this tool specifically for technical recruiters and hiring managers who need to evaluate large volumes of job applications efficiently. Rather than presenting abstract vector distances, I customized the output to display percentage match scores and highlighted keyword alignments, allowing recruiters to quickly understand why a candidate was ranked at a specific level.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+          2. Lessons Learned
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          This artifact significantly expanded my practical knowledge of Natural Language Processing (NLP) and transformer-based architectures. I learned how to preprocess unstructured text, build tokenization pipelines, and generate dense sentence embeddings using Hugging Face models. Calculating cosine similarity across vector embeddings gave me hands-on experience in modern semantic search workflows.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          3. Feedback and Revisions
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Initial testing showed that simple keyword matching struggled with varied resume terminology (e.g., "ML Engineer" vs. "Machine Learning Practitioner"). Following feedback, I shifted from traditional keyword TF-IDF parsing to pre-trained transformer embeddings (Sentence-BERT). This revision substantially improved the tool's ability to capture semantic intent regardless of phrasing differences.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 2: Image Code Preview -->
+    <div id="tab-content-resume-code" class="hidden">
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+        <span class="text-xs font-mono text-slate-400 mb-3 self-start px-1">Source Code Screenshot: images/snip3.png</span>
+        <img
+          src="images/screning.png"
+          alt="Automated AI Resume Screener Code Snippet"
+          class="max-h-[60vh] w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+        />
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+      <button
+        onclick="closeResumeModal()"
+        class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+      >
+        Close Window
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tab Switcher & Display JavaScript -->
+<script>
+  function openResumeModal() {
+    document.getElementById('resumeModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeResumeModal() {
+    document.getElementById('resumeModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function switchResumeTab(tab) {
+    const reflectionContent = document.getElementById('tab-content-resume-reflection');
+    const codeContent = document.getElementById('tab-content-resume-code');
+    const reflectionBtn = document.getElementById('tab-btn-resume-reflection');
+    const codeBtn = document.getElementById('tab-btn-resume-code');
+
+    if (tab === 'reflection') {
+      reflectionContent.classList.remove('hidden');
+      codeContent.classList.add('hidden');
+      reflectionBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      codeBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    } else {
+      reflectionContent.classList.add('hidden');
+      codeContent.classList.remove('hidden');
+      codeBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      reflectionBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    }
+  }
+
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('resumeModal');
+    if (event.target === modal) {
+      closeResumeModal();
+    }
+  });
+</script>
+
+<!-- Modal for Customer Churn Prediction System -->
+<div
+  id="churnModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4"
+>
+  <div
+    class="relative w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Customer Churn Prediction System (Classification)</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Artifact Overview & Implementation Specs</p>
+      </div>
+      <button
+        onclick="closeChurnModal()"
+        class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 transition-colors"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Navigation Tabs inside Modal -->
+    <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 gap-4 text-xs font-semibold">
+      <button 
+        id="tab-btn-churn-reflection" 
+        onclick="switchChurnTab('reflection')" 
+        class="pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all"
+      >
+        Project Reflection & Insights
+      </button>
+      <button 
+        id="tab-btn-churn-code" 
+        onclick="switchChurnTab('code')" 
+        class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all"
+      >
+        Source Code Preview (images/snip4.png)
+      </button>
+    </div>
+
+    <!-- TAB 1: Reflection Content -->
+    <div id="tab-content-churn-reflection" class="space-y-6 text-sm text-slate-600 dark:text-slate-300">
+      <!-- Section 1 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          1. Customization for the Audience
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          To ensure this artifact resonated with business retention teams and non-technical stakeholders, I tailored the outputs to focus heavily on actionable metrics—specifically Precision, Recall, and ROC-AUC—rather than raw loss values. Instead of presenting purely complex mathematical formulas, I provided an intuitive decision threshold slider within the interactive interface, allowing retention managers to adjust risk tolerance based on budget and customer acquisition costs.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+          2. Lessons Learned
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Building this classification pipeline taught me the critical importance of handling class imbalance in real-world tabular data. I learned how naive accuracy can be misleading when predicting rare events like customer churn. Working through feature scaling and hyperparameter tuning deepened my understanding of model evaluation trade-offs and taught me how to properly structure cross-validation to prevent data leakage.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+          3. Feedback and Revisions
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Initial feedback highlighted that early iterations of the feature set relied too heavily on correlated variables, which reduced model interpretability. In response, I conducted collinearity checks and removed redundant features. I also incorporated feedback on the user interface by adding visual feature importance plots, making it easier for stakeholders to see which behavioral factors (e.g., contract length or support ticket frequency) drove the risk scores.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 2: Image Code Preview -->
+    <div id="tab-content-churn-code" class="hidden">
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+        <span class="text-xs font-mono text-slate-400 mb-3 self-start px-1">Source Code Screenshot: images/snip4.png</span>
+        <img
+          src="images/churn.png"
+          alt="Customer Churn Prediction Code Snippet"
+          class="max-h-[60vh] w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+        />
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+      <button
+        onclick="closeChurnModal()"
+        class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+      >
+        Close Window
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tab Switcher & Display JavaScript -->
+<script>
+  function openChurnModal() {
+    document.getElementById('churnModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeChurnModal() {
+    document.getElementById('churnModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function switchChurnTab(tab) {
+    const reflectionContent = document.getElementById('tab-content-churn-reflection');
+    const codeContent = document.getElementById('tab-content-churn-code');
+    const reflectionBtn = document.getElementById('tab-btn-churn-reflection');
+    const codeBtn = document.getElementById('tab-btn-churn-code');
+
+    if (tab === 'reflection') {
+      reflectionContent.classList.remove('hidden');
+      codeContent.classList.add('hidden');
+      reflectionBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      codeBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    } else {
+      reflectionContent.classList.add('hidden');
+      codeContent.classList.remove('hidden');
+      codeBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      reflectionBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    }
+  }
+
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('churnModal');
+    if (event.target === modal) {
+      closeChurnModal();
+    }
+  });
+</script>
+
+<!-- Modal for Predictive Demand Forecasting Model -->
+<div
+  id="forecastModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4"
+>
+  <div
+    class="relative w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Predictive Maintenance & Demand Forecasting Model (Time-Series)</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Artifact Overview & Implementation Specs</p>
+      </div>
+      <button
+        onclick="closeForecastModal()"
+        class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 transition-colors"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Navigation Tabs inside Modal -->
+    <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 gap-4 text-xs font-semibold">
+      <button 
+        id="tab-btn-forecast-reflection" 
+        onclick="switchForecastTab('reflection')" 
+        class="pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all"
+      >
+        Project Reflection & Insights
+      </button>
+      <button 
+        id="tab-btn-forecast-code" 
+        onclick="switchForecastTab('code')" 
+        class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all"
+      >
+        Source Code Preview (images/snip5.png)
+      </button>
+    </div>
+
+    <!-- TAB 1: Reflection Content -->
+    <div id="tab-content-forecast-reflection" class="space-y-6 text-sm text-slate-600 dark:text-slate-300">
+      <!-- Section 1 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          1. Customization for the Audience
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          To meet the needs of supply chain managers and logistics operators, I focused the model outputs on time-horizon demand forecasts and risk alert thresholds. I presented the results using intuitive line graphs comparing historical demand against forecasted trends, alongside clear error metrics (MAE and RMSE), enabling operators to make informed inventory decisions.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+          2. Lessons Learned
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          This project provided valuable experience in handling time-dependent, sequential data structures. I learned how to engineer temporal lag features, compute rolling averages, and account for seasonality without introducing future data leakage into training splits. It taught me the practical complexities of maintaining model stability over dynamic time horizons.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          3. Feedback and Revisions
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Early feedback indicated that the baseline model was overshooting predictions during sudden demand spikes. I revised the approach by testing different lag windows and introducing rolling statistics to smooth out short-term variance. Incorporating these revisions reduced prediction error significantly and made the forecasts far more reliable for operational planning.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 2: Image Code Preview -->
+    <div id="tab-content-forecast-code" class="hidden">
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+        <span class="text-xs font-mono text-slate-400 mb-3 self-start px-1">Source Code Screenshot: images/snip5.png</span>
+        <img
+          src="images/fore.png"
+          alt="Demand Forecasting Model Code Snippet"
+          class="max-h-[60vh] w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+        />
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+      <button
+        onclick="closeForecastModal()"
+        class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+      >
+        Close Window
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tab Switcher & Display JavaScript -->
+<script>
+  function openForecastModal() {
+    document.getElementById('forecastModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeForecastModal() {
+    document.getElementById('forecastModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function switchForecastTab(tab) {
+    const reflectionContent = document.getElementById('tab-content-forecast-reflection');
+    const codeContent = document.getElementById('tab-content-forecast-code');
+    const reflectionBtn = document.getElementById('tab-btn-forecast-reflection');
+    const codeBtn = document.getElementById('tab-btn-forecast-code');
+
+    if (tab === 'reflection') {
+      reflectionContent.classList.remove('hidden');
+      codeContent.classList.add('hidden');
+      reflectionBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      codeBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    } else {
+      reflectionContent.classList.add('hidden');
+      codeContent.classList.remove('hidden');
+      codeBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all';
+      reflectionBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all';
+    }
+  }
+
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('forecastModal');
+    if (event.target === modal) {
+      closeForecastModal();
+    }
+  });
+</script>
+  </body>
+</html>
