@@ -995,6 +995,69 @@
     </button>
   </div>
 </div>
+
+<!-- Project 3: "Be the Model" Interactive AI Demonstration -->
+<div
+  class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  data-category="ml architecture"
+>
+  <div
+    class="h-48 bg-gradient-to-tr from-purple-600 to-indigo-600 p-6 flex flex-col justify-between relative overflow-hidden"
+  >
+    <div
+      class="absolute right-[-20px] bottom-[-20px] opacity-15 text-9xl text-white font-mono pointer-events-none"
+    >
+      <i class="fas fa-brain font-sans"></i>
+    </div>
+    <div class="flex justify-between items-start z-10">
+      <span
+        class="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[10px] font-mono font-bold tracking-wider uppercase"
+        >AI Literacy & Simulation</span
+      >
+      <span class="text-white/80 font-mono text-xs">Artifact #3</span>
+    </div>
+    <div class="z-10">
+      <h3 class="text-xl font-bold text-white">
+        "Be the Model" AI Demonstration
+      </h3>
+    </div>
+  </div>
+  <div class="p-6 space-y-4">
+    <p
+      class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3"
+    >
+      Interactive educational simulation placing users directly into the shoes of a neural language model to process next-token predictions and hallucination traps.
+    </p>
+    <div class="flex flex-wrap gap-1.5 pt-2">
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Interactive Simulation</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >Prompt Engineering</span
+      >
+      <span
+        class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono"
+        >AI Literacy</span
+      >
+    </div>
+    <div
+      class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs text-slate-500 font-medium"
+    >
+      <span
+        ><i class="fas fa-play-circle text-purple-500 mr-1"></i> Live Interactive Widget</span
+      >
+      <button
+        onclick="openModelModal()"
+        class="text-brand-600 dark:text-brand-400 hover:underline font-semibold cursor-pointer border-none bg-transparent"
+      >
+        View more &rarr;
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Project 5: Predictive Maintenance & Demand Forecasting Model -->
 <div
   class="project-card group rounded-2xl bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
@@ -1613,6 +1676,12 @@
     }
   }
 </script> --> 
+
+
+
+
+
+
 
 <!-- Modal for Healthcare Operations Analytics -->
 <div
@@ -2379,5 +2448,215 @@ Based on peer and instructor feedback, my initial dataset lacked sufficient docu
     }
   });
 </script>
+
+<!-- Modal for Artifact #3: "Be the Model" Interactive AI Demonstration -->
+<div
+  id="modelModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4"
+>
+  <div
+    class="relative w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">"Be the Model" Interactive AI Demonstration</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Artifact #3 Overview & Implementation Specs</p>
+      </div>
+      <button
+        onclick="closeModelModal()"
+        class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2 rounded-lg bg-slate-100 dark:bg-slate-800 transition-colors cursor-pointer"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Navigation Tabs inside Modal -->
+    <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 gap-4 text-xs font-semibold">
+      <button 
+        id="tab-btn-model-reflection" 
+        onclick="switchModelTab('reflection')" 
+        class="pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all cursor-pointer"
+      >
+        Project Reflection & Insights
+      </button>
+      <button 
+        id="tab-btn-model-simulator" 
+        onclick="switchModelTab('simulator')" 
+        class="pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all cursor-pointer"
+      >
+        Interactive Simulation Widget
+      </button>
+    </div>
+
+    <!-- TAB 1: Reflection Content -->
+    <div id="tab-content-model-reflection" class="space-y-6 text-sm text-slate-600 dark:text-slate-300">
+      <!-- Section 1 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+          1. Customization for the Audience
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          I structured this artifact presentation for an academic and professional audience exploring AI literacy, human-AI interaction, and prompt engineering principles. Rather than treating an AI as an opaque "black box," this interactive framework breaks down its underlying probabilistic nature into digestible, experiential steps. By allowing users to personally experience how syntax and statistical weight dictate responses, the design bridges the gap between complex machine learning theory and intuitive human understanding.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+          2. Lessons Learned
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Designing and participating in this exercise deepened my appreciation for the mechanics of generative AI, particularly the difference between true semantic reasoning and statistical pattern completion. I gained clearer insight into why models struggle with novel, counter-factual inputs—they are fundamentally optimized to predict the most probable continuation of text based on training data. This reinforces the necessity of strict system guardrails, external tool verification, and robust human oversight in real-world deployment.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+        <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          3. Feedback and Revisions
+        </h4>
+        <p class="leading-relaxed text-xs sm:text-sm">
+          Initial walkthroughs of the simulation revealed that participants could easily mistake fluent grammatical output for genuine factual verification, especially when encountering complex fictional prompts. In response, I revised the exercise structure to explicitly highlight the "Trap Round" as a core analytical milestone. Emphasizing this contrast successfully trains users to adopt a critical posture, ensuring they evaluate AI outputs for factual validity rather than accepting fluent prose at face value.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 2: Interactive Simulation Widget -->
+    <div id="tab-content-model-simulator" class="hidden">
+      <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 text-slate-200 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div>
+            <span class="text-xs font-mono text-brand-400 uppercase tracking-wider">Live Interactive Simulator</span>
+            <h4 class="text-base font-bold text-white">Neural Next-Token Prediction Engine</h4>
+          </div>
+          <span id="model-score-modal" class="text-xs font-mono bg-brand-500/10 text-brand-400 px-2.5 py-1 rounded-full border border-brand-500/20">Score: 0 / 2</span>
+        </div>
+
+        <div id="sim-container-modal" class="space-y-4">
+          <div id="sim-stage-1-modal">
+            <p class="text-xs text-slate-400 mb-2 font-mono">Stage 1: Pattern Recognition & Likelihood</p>
+            <div class="bg-slate-900 p-4 rounded-lg border border-slate-800 space-y-3">
+              <p class="text-sm font-medium text-slate-200">Prompt: <span class="font-mono text-brand-300">"The capital of France is..."</span></p>
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="checkModelAnswerModal(1, 'Paris', true)" class="p-2.5 text-xs font-mono bg-slate-800 hover:bg-brand-600/20 hover:border-brand-500 border border-slate-700 rounded transition-all text-left flex justify-between items-center cursor-pointer">
+                  <span>A) Paris</span>
+                  <span class="text-[10px] text-slate-400">99.4% weight</span>
+                </button>
+                <button onclick="checkModelAnswerModal(1, 'Lyon', false)" class="p-2.5 text-xs font-mono bg-slate-800 hover:bg-rose-600/20 hover:border-rose-500 border border-slate-700 rounded transition-all text-left flex justify-between items-center cursor-pointer">
+                  <span>B) Lyon</span>
+                  <span class="text-[10px] text-slate-400">0.4% weight</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="sim-stage-2-modal" class="hidden">
+            <p class="text-xs text-slate-400 mb-2 font-mono">Stage 2: Hallucination & Trap Testing</p>
+            <div class="bg-slate-900 p-4 rounded-lg border border-slate-800 space-y-3">
+              <p class="text-sm font-medium text-slate-200">Prompt: <span class="font-mono text-brand-300">"According to records, the 18th king of Velmora was..."</span></p>
+              <div class="grid grid-cols-1 gap-2">
+                <button onclick="checkModelAnswerModal(2, 'hallucinate', false)" class="p-2.5 text-xs font-mono bg-slate-800 hover:bg-rose-600/20 hover:border-rose-500 border border-slate-700 rounded transition-all text-left cursor-pointer">
+                  A) Invent a plausible king name (Fallback to pattern completion)
+                </button>
+                <button onclick="checkModelAnswerModal(2, 'boundary', true)" class="p-2.5 text-xs font-mono bg-slate-800 hover:bg-emerald-600/20 hover:border-emerald-500 border border-slate-700 rounded transition-all text-left cursor-pointer">
+                  B) Recognize non-existent entity / Exercise boundary verification
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="sim-feedback-modal" class="hidden p-3 rounded-lg text-xs font-mono"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-4 mt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+      <button
+        onclick="closeModelModal()"
+        class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+      >
+        Close Window
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let simScoreModal = 0;
+
+  function openModelModal() {
+    document.getElementById('modelModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModelModal() {
+    document.getElementById('modelModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function switchModelTab(tab) {
+    const reflectionContent = document.getElementById('tab-content-model-reflection');
+    const simulatorContent = document.getElementById('tab-content-model-simulator');
+    const reflectionBtn = document.getElementById('tab-btn-model-reflection');
+    const simulatorBtn = document.getElementById('tab-btn-model-simulator');
+
+    if (tab === 'reflection') {
+      reflectionContent.classList.remove('hidden');
+      simulatorContent.classList.add('hidden');
+      reflectionBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all cursor-pointer';
+      simulatorBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all cursor-pointer';
+    } else {
+      reflectionContent.classList.add('hidden');
+      simulatorContent.classList.remove('hidden');
+      simulatorBtn.className = 'pb-2 border-b-2 border-brand-500 text-brand-600 dark:text-brand-400 font-bold transition-all cursor-pointer';
+      reflectionBtn.className = 'pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all cursor-pointer';
+    }
+  }
+
+  function checkModelAnswerModal(stage, choice, isCorrect) {
+    const feedback = document.getElementById('sim-feedback-modal');
+    feedback.classList.remove('hidden');
+    
+    if (stage === 1) {
+      if (isCorrect) {
+        simScoreModal++;
+        feedback.className = "p-3 rounded-lg text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+        feedback.innerHTML = "<strong>Correct!</strong> High statistical weight in training corpora predicts 'Paris' with near-certainty.";
+      } else {
+        feedback.className = "p-3 rounded-lg text-xs font-mono bg-rose-500/10 text-rose-400 border border-rose-500/20";
+        feedback.innerHTML = "<strong>Incorrect.</strong> Selecting low-probability tokens causes factual divergence.";
+      }
+      document.getElementById('model-score-modal').innerText = `Score: ${simScoreModal} / 2`;
+      setTimeout(() => {
+        document.getElementById('sim-stage-1-modal').classList.add('hidden');
+        document.getElementById('sim-stage-2-modal').classList.remove('hidden');
+        feedback.classList.add('hidden');
+      }, 2000);
+    } else if (stage === 2) {
+      if (isCorrect) {
+        simScoreModal++;
+        feedback.className = "p-3 rounded-lg text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+        feedback.innerHTML = "<strong>Excellent!</strong> You successfully identified a non-existent entity ('Velmora'), avoiding a hallucination trap.";
+      } else {
+        feedback.className = "p-3 rounded-lg text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20";
+        feedback.innerHTML = "<strong>Trap Triggered:</strong> Unverified models often invent fluent falsehoods when presented with fictional premises.";
+      }
+      document.getElementById('model-score-modal').innerText = `Score: ${simScoreModal} / 2`;
+    }
+  }
+
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('modelModal');
+    if (event.target === modal) {
+      closeModelModal();
+    }
+  });
+</script>
+
   </body>
 </html>
